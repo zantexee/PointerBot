@@ -12,3 +12,4 @@ Didn't make the roles that the give command should be accesible for but I could,
 - prefix + checkmy {checks your points}
 - prefix + redeem {redeems your role based on your points}
 - prefix + ping / pong (classic)
+###### THIS WAS MADE BY ME AND https://github.com/Venn0x
