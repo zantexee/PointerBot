@@ -138,9 +138,9 @@ client.on('message', msg => {
             msg.channel.send("Syntax: " + prefix + "givep {number of credits} {username/mention of the user}");
             return 1;
         }
-        let points = args[0];
+        let points = parseInt(args[0]);
         let server = msg.guild.id;
-        let userNameArgs = parseInt(args[1]);
+        let userNameArgs = args[1];
         let user = args[1];
         let userName = "";
         if (args.length > 2) {
@@ -156,7 +156,7 @@ client.on('message', msg => {
                 let userL = msg.guild.members.cache.keyArray();
                 console.log(userL);
                 for (let i = 0; i < userL.length; i++) {
-                    connection.handle.query('SELECT `id` FROM `points` WHERE `userId` = ' + userL[i] + ' AND `serverId` = ' + server, function(err, res, row) {
+                    connection.handle.query('SELECT `id` FROM `points` WHERE `userId` = ?',[userL[i]], ' AND `serverId` = ?',[server], function(err, res, row) {
                         if (!err) {
                             console.log(res.length);
                             if (res.length != 0) databaseUpdate(userL[i], server, points);
