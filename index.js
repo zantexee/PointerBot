@@ -140,7 +140,7 @@ client.on('message', msg => {
         }
         let points = args[0];
         let server = msg.guild.id;
-        let userNameArgs = args[1];
+        let userNameArgs = parseInt(args[1]);
         let user = args[1];
         let userName = "";
         if (args.length > 2) {
